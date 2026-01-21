@@ -234,3 +234,5 @@ docker-compose down
 # Stop and remove volumes
 docker-compose down -v
 ```
+
+## Additional Usage
