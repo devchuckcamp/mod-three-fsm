@@ -1,0 +1,38 @@
+{
+  "name": "devchuckcamp/mod-three-fsm",
+  "description": "A type-safe Finite State Automaton (FSA) generator library for PHP 8.3+. Build custom deterministic finite automata using formal 5-tuple definitions (Q, Σ, q₀, δ, F). Features comprehensive validation, clean API design, and extensible architecture. Includes modulo-three implementation and practical examples (parity checking, divisibility testing, pattern validation, protocol state machines).",
+  "type": "library",
+  "keywords": ["fsm", "finite-state-machine", "dfa", "automaton", "modulo-three"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "DevChuckCamp",
+      "email": "dev@chuckcamp.com"
+    }
+  ],
+  "homepage": "https://github.com/devchuckcamp/mod-three-fsm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devchuckcamp/mod-three-fsm.git"
+  },
+  "require": {
+    "php": ">=8.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ModThree\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ModThree\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "minimum-stability": "stable"
+}
