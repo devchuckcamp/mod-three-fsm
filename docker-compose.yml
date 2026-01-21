@@ -1,0 +1,19 @@
+services:
+  php:
+    build: .
+    container_name: mod-three-fsm-php
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: tail -f /dev/null
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
+      XDEBUG_MODE: coverage
+
+  composer:
+    image: composer:latest
+    container_name: mod-three-fsm-composer
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: install
