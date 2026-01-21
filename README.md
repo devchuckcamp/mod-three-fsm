@@ -1,5 +1,10 @@
 # FSM Generator Library - PHP Implementation
 
+[![PHP CI](https://github.com/devchuckcamp/mod-three-fsm/actions/workflows/php-ci.yml/badge.svg)](https://github.com/devchuckcamp/mod-three-fsm/actions/workflows/php-ci.yml)
+[![codecov](https://codecov.io/gh/devchuckcamp/mod-three-fsm/branch/main/graph/badge.svg)](https://codecov.io/gh/devchuckcamp/mod-three-fsm)
+[![PHP Version](https://img.shields.io/badge/php-%3E%3D8.3-blue.svg)](https://www.php.net)
+[![License](https://img.shields.io/badge/license-Custom-orange.svg)](LICENSE)
+
 A reusable Finite State Automaton (FSA) generator library for PHP 8.3, designed for developers to build custom automata. Includes a modulo-three implementation as a concrete example.
 
 **Repository:** [github.com/devchuckcamp/mod-three-fsm](https://github.com/devchuckcamp/mod-three-fsm)
@@ -49,6 +54,49 @@ docker-compose run composer install
 ```
 
 This ensures that PSR-4 autoloading works correctly for any new classes added to the `src/` directory.
+
+## Continuous Integration
+
+This project uses **GitHub Actions** for automated testing and quality checks.
+
+### Workflow Details
+
+The CI pipeline runs automatically on:
+- Every push to `main` branch
+- Every pull request targeting `main`
+
+**Test Job:**
+- Validates `composer.json`
+- Installs dependencies with caching
+- Runs full test suite (14 tests, 31 assertions)
+- Generates code coverage report (100% on core classes)
+- Uploads coverage to Codecov
+- Archives coverage artifacts
+
+**Code Quality Job:**
+- Checks for PHP syntax errors
+- Verifies PSR-4 autoload compliance
+
+### View Results
+
+- **Build Status:** Check the badge at the top of this README
+- **Coverage Reports:** View detailed coverage on [Codecov](https://codecov.io/gh/devchuckcamp/mod-three-fsm)
+- **Workflow Runs:** See [Actions tab](https://github.com/devchuckcamp/mod-three-fsm/actions/workflows/php-ci.yml)
+
+### Local Testing Before Push
+
+Run the same checks locally to catch issues early:
+
+```bash
+# Validate composer.json
+docker-compose run composer validate --strict
+
+# Run syntax check on all PHP files
+docker-compose exec php sh -c "find src tests -name '*.php' -exec php -l {} \;"
+
+# Run full test suite with coverage
+docker-compose exec -e XDEBUG_MODE=coverage php vendor/bin/phpunit --coverage-text --coverage-filter src
+```
 
 ## Running Tests
 

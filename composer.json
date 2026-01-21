@@ -11,10 +11,6 @@
     }
   ],
   "homepage": "https://github.com/devchuckcamp/mod-three-fsm",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/devchuckcamp/mod-three-fsm.git"
-  },
   "require": {
     "php": ">=8.3"
   },
